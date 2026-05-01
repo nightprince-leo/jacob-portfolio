@@ -1,0 +1,43 @@
+.rail {
+  padding-top: 4px;
+  padding-left: var(--space-6);
+}
+
+@media (max-width: 900px) {
+  .rail {
+    padding-left: 0;
+    padding-top: var(--space-2);
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+}
+
+.annotation {
+  margin-bottom: var(--space-4);
+}
+
+.leaderLine {
+  height: 0.5px;
+  background: var(--color-hairline);
+  width: 100%;
+  margin-bottom: var(--space-1);
+}
+
+.label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--color-red);
+  margin-bottom: 3px;
+}
+
+.sub {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  color: var(--color-steel);
+  line-height: 1.5;
+}

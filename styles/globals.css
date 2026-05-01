@@ -1,0 +1,183 @@
+/* ============================================================
+   FRONTIER SURVEY — Design System Tokens
+   Replace font imports below with your licensed font files
+   ============================================================ */
+
+@font-face {
+  font-family: 'Canela';
+  src: url('/fonts/Canela-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sohne';
+  src: url('/fonts/Sohne-Buch.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sohne';
+  src: url('/fonts/Sohne-Halbfett.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FreightText';
+  src: url('/fonts/FreightTextPro-Book.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-paper:      #F6F3EE;
+  --color-ink:        #1E1E1E;
+  --color-steel:      #6B7A8D;
+  --color-hairline:   #C8C4BC;
+  --color-red:        #9B2335;
+  --color-hero-dark:  #1E2A35;
+
+  --font-display:  'Canela', 'Georgia', serif;
+  --font-struct:   'Sohne', 'Helvetica Neue', sans-serif;
+  --font-body:     'FreightText', 'Georgia', serif;
+  --font-mono:     'IBM Plex Mono', 'Courier New', monospace;
+
+  --space-1:  8px;
+  --space-2:  16px;
+  --space-3:  24px;
+  --space-4:  32px;
+  --space-5:  40px;
+  --space-6:  48px;
+  --space-8:  64px;
+  --space-10: 80px;
+  --space-12: 96px;
+  --space-16: 128px;
+  --space-20: 160px;
+
+  --max-width: 1200px;
+  --radius: 2px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  line-height: 1.7;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-10);
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 var(--space-3); }
+}
+
+.divider {
+  width: 100%;
+  height: 0.5px;
+  background: var(--color-hairline);
+  border: none;
+}
+
+/* Typography */
+.t-display {
+  font-family: var(--font-display);
+  font-weight: 100;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
+
+.t-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--color-steel);
+  text-transform: uppercase;
+}
+
+.t-caption {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--color-hairline);
+}
+
+/* Animations */
+@keyframes wordReveal {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes drawLine {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up { opacity: 0; }
+.fade-up.visible { animation: fadeUp 0.7s var(--ease-out) forwards; }
+
+.leader-line { transform-origin: left; transform: scaleX(0); }
+.leader-line.visible { animation: drawLine 0.5s var(--ease-out) forwards; }
+
+/* Hover states */
+.nav-contact { position: relative; }
+.nav-contact::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 1px;
+  background: var(--color-red);
+  transition: width 0.2s var(--ease-out);
+}
+.nav-contact:hover::after { width: 100%; }
+
+.case-card { transition: transform 0.3s var(--ease-out); }
+.case-card:hover { transform: translateY(-4px); }
+
+.img-placeholder {
+  width: 100%;
+  background: rgba(200,196,188,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  border: 0.5px solid var(--color-hairline);
+}
+
+.img-placeholder span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--color-steel);
+}

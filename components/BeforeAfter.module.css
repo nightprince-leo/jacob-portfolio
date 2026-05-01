@@ -1,0 +1,58 @@
+.wrap {
+  margin: var(--space-8) 0;
+}
+
+.header {
+  margin-bottom: var(--space-3);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.th {
+  text-align: left;
+  letter-spacing: 0.06em;
+  color: var(--color-steel);
+  font-weight: 400;
+  padding: var(--space-1) var(--space-2);
+  border-bottom: 0.5px solid var(--color-hairline);
+}
+
+.thMetric {
+  width: 28%;
+  padding: var(--space-1) 0;
+  border-bottom: 0.5px solid var(--color-hairline);
+}
+
+.row { border-bottom: 0.5px solid var(--color-hairline); }
+.row:last-child { border-bottom: none; }
+
+.metric {
+  padding: var(--space-2) 0;
+  color: var(--color-steel);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  vertical-align: top;
+}
+
+.before {
+  padding: var(--space-2);
+  color: var(--color-steel);
+  text-decoration: line-through;
+  text-decoration-color: var(--color-hairline);
+  font-size: 12px;
+  vertical-align: top;
+}
+
+.after {
+  padding: var(--space-2);
+  color: var(--color-ink);
+  font-size: 12px;
+  font-weight: 500;
+  vertical-align: top;
+}
