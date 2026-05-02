@@ -323,4 +323,24 @@ export const ABOUT = {
 export const CONTACT = {
   headline: "If you're building something hard and need someone who can own the design function — let's talk.",
   email: "jacob.alley21@gmail.com",
+  modal: {
+    title: "Get in touch",
+    intro:
+      "A short note is enough — context, timeline, and what you're trying to ship. I'll read it carefully.",
+    fields: {
+      name: "Name",
+      email: "Email",
+      message: "Message",
+    },
+    submit: "Send message",
+    close: "Close",
+    requiredHint: "Required",
+    sending: "Sending…",
+    sendError:
+      "Something went wrong sending that. You can still reach me at the address below.",
+    successTitle: "Thank you",
+    successBody:
+      "Your message is in my inbox. I reply when I can give it a real read — usually within a couple of days.",
+    successDismiss: "Close",
+  },
 };
