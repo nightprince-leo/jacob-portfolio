@@ -34,7 +34,8 @@
   align-items: center;
 }
 
-.links a {
+.links a,
+.links .linkButton {
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.06em;
@@ -42,7 +43,21 @@
   transition: color 0.2s;
 }
 
-.links a:hover { color: var(--color-ink); }
+.links a:hover,
+.links .linkButton:hover { color: var(--color-ink); }
+
+.links .linkButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.links .linkButton:focus-visible {
+  outline: 0.5px solid var(--color-steel);
+  outline-offset: 2px;
+  border-radius: var(--radius);
+}
 
 .links span {
   font-family: var(--font-mono);
