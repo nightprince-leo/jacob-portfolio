@@ -14,11 +14,16 @@ export const SITE = {
 export const HERO = {
   headline: ["The hard problems", "are the good ones."],
   subheadline:
-    "Complex systems, real constraints, small teams — I've spent a decade making hard things shippable.",
+    "Designing and shipping high-stakes product systems under real constraints.",
 };
 
 export const CREDIBILITY = {
   line: "Past clients include Anheuser-Busch, IQVIA, Fox Corporation, CBC, HBO, and National Geographic.",
+};
+
+/** Homepage case study grid — section heading above the cards */
+export const CASE_STUDY_CARDS = {
+  sectionLabel: "Selected Work",
 };
 
 export const CASE_STUDIES = [
@@ -313,10 +318,10 @@ export const HOT_TAKES = [
 
 export const ABOUT = {
   paragraphs: [
-    "I do my best thinking onsite — whiteboard, engineers, real problem in the room.",
-    "I've spent a decade working on products where the constraints are hard, the stakes are real, and the teams are small enough that every decision matters. That's not a circumstance I tolerate — it's what I look for.",
-    "Outside of work I grow things — gardens move slow, require patience, and punish shortcuts. Strategy games scratch the same itch as product design: fixed rules, infinite approaches, no perfect answer.",
-    "I'm drawn to frontier problems. The ones few have solved before. That's where design judgment actually matters.",
+    "I do my best thinking in the room — whiteboard, engineers, real problem in front of us.",
+    "I've spent the last decade working on products with real constraints: complex systems, small teams, and decisions that actually matter. That's not a tradeoff—it's the work I look for.",
+    "Outside of work, I grow things. Gardens are slow and don't tolerate shortcuts. Strategy games scratch the same itch—clear rules, many paths, no perfect answer.",
+    "I'm drawn to frontier problems. The ones few have solved before.",
   ],
 };
 

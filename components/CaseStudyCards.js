@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
-import { CASE_STUDIES } from '../content';
+import { CASE_STUDIES, CASE_STUDY_CARDS } from '../content';
 import styles from './CaseStudyCards.module.css';
 
 function CaseCard({ cs, index }) {
@@ -76,7 +76,7 @@ export default function CaseStudyCards() {
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <span className="t-label">Selected Work</span>
+          <span className="t-label">{CASE_STUDY_CARDS.sectionLabel}</span>
           <hr className="divider" style={{ flex: 1 }} />
         </div>
         <div className={styles.grid}>
