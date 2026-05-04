@@ -52,10 +52,14 @@
   opacity: 0.6;
 }
 
-/* Divider in dark context */
-.inner hr.divider {
-  background: rgba(200,196,188,0.2);
-  margin-bottom: var(--space-8);
+.inner :global(hr.divider) {
+  border: none;
+  height: 0;
+  margin: 0 0 var(--space-8);
+  padding: 0;
+  background: transparent;
+  visibility: hidden;
+  appearance: none;
 }
 
 /* Headline */
