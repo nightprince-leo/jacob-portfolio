@@ -299,8 +299,14 @@ export const HOT_TAKES = [
   {
     id: 1,
     image: "/images/hot-take-1.jpg",
-    title: "Curate your inputs.",
-    subtitle: "Most people focus on refining AI output—better prompts, better generations. Less attention goes to what they consume before it starts. Too much input flattens thinking. Endless inspiration feeds, Pinterest loops, one more prompt tweak—it all converges toward the same ideas. The best ideas tend to show up after the input stops. Real divergence needs space. Get bored. Actually bored. That's usually where something original shows up.",
+    title: "Curate your inputs, not just your outputs.",
+    subtitle: [
+      "Most people focus on refining AI output—better prompts, better generations. Less attention goes to what they consume before they start.",
+      "Too much input flattens thinking. Endless inspiration feeds, Pinterest loops, one more prompt tweak—it all converges toward the same ideas.",
+      "The best ideas tend to show up after the input stops. Real divergence needs space.",
+      "Get bored. Actually bored.",
+      "That's usually where something original shows up.",
+       ],
   },
   {
     id: 2,
