@@ -300,7 +300,7 @@ export const HOT_TAKES = [
     id: 1,
     image: "/images/hot-take-1.jpg",
     title: "Curate your inputs, not just your outputs.",
-    subtitle: [
+    paragraphs: [
       "Most people focus on refining AI output—better prompts, better generations. Less attention goes to what they consume before they start.",
       "Too much input flattens thinking. Endless inspiration feeds, Pinterest loops, one more prompt tweak—it all converges toward the same ideas.",
       "The best ideas tend to show up after the input stops. Real divergence needs space.",
@@ -312,7 +312,7 @@ export const HOT_TAKES = [
     id: 2,
     image: "/images/hot-take-2.jpg",
     title: "Frameworks are documentation, not destination.",
-    subtitle: [
+    paragraphs: [
       "The best team I've worked on didn't rely on process—it operated on shared instinct.",
       "I'd need something from an engineer by morning, and without asking, it would be done. When a better tool emerged, we tried it and moved on. No ceremony, no process overhaul.",
       "Frameworks are useful—they capture patterns and help teams get aligned.",
@@ -325,14 +325,14 @@ export const HOT_TAKES = [
     id: 3,
     image: "/images/hot-take-3.jpg",
     title: "Trust is a constraint, not a feature.",
-    subtitle: [
+    paragraphs: [
       "On the AB project, a new sales tool had one shot.",
       "Field sales reps are high-autonomy, deeply experienced, and skeptical of anything that looks like an algorithm telling them what to do.",
       "We designed for trust from the start—transparent logic, explainable data, and integration that didn't interrupt how they already worked.",
       "Two months post-launch: 93% weekly adoption.",
       "That doesn't happen if trust is layered on at the end. In data-heavy products, trust is a constraint you design within from day one.",
       "You build it slowly, and you can lose it in a single moment.",
-    ]
+    ],
   },
 ];
 
