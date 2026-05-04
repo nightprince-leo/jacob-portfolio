@@ -18,7 +18,7 @@ export const HERO = {
 };
 
 export const CREDIBILITY = {
-  line: "Past clients include Anheuser-Busch, IQVIA, Fox Corporation, CBC, HBO, and National Geographic.",
+  line: "Past clients include IQVIA, Alliant Credit Union,CBC, HBO, and National Geographic.",
 };
 
 /** Homepage case study grid — section heading above the cards */
@@ -339,9 +339,8 @@ export const HOT_TAKES = [
 export const ABOUT = {
   paragraphs: [
     "I do my best thinking in the room — whiteboard, engineers, real problem in front of us.",
-    "I've spent the last decade working on products with real constraints: complex systems, small teams, and decisions that actually matter. That's not a tradeoff—it's the work I look for.",
+    "I've spent the last decade working on products with real constraints: complex systems, small teams, and decisions that actually matter.",
     "Outside of work, I grow things. Gardens are slow and don't tolerate shortcuts. Strategy games scratch the same itch—clear rules, many paths, no perfect answer.",
-    "I'm drawn to frontier problems. The ones few have solved before.",
   ],
 };
 
