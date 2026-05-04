@@ -3,7 +3,7 @@ import Nav from '../components/Nav';
 import Hero from '../components/Hero';
 import CaseStudyCards from '../components/CaseStudyCards';
 import Credibility from '../components/Credibility';
-import Experiments from '../components/Experiments';
+// import Experiments from '../components/Experiments'; // section hidden — restore when needed
 import HotTakes from '../components/HotTakes';
 import About from '../components/About';
 import Contact from '../components/Contact';
@@ -44,7 +44,7 @@ export default function Home() {
         <Hero />
         <CaseStudyCards />
         <Credibility />
-        <Experiments />
+        {/* <Experiments /> — section hidden; uncomment import + this line to restore */}
         <HotTakes />
         <About />
         <Contact />
