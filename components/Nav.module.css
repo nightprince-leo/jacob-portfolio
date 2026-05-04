@@ -27,6 +27,22 @@
   letter-spacing: 0;
 }
 
+/* Homepage: hide nav name until hero #hero-site-name scrolls out, then ease in */
+.nameReveal {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition:
+    opacity 0.55s var(--ease-out),
+    transform 0.55s var(--ease-out);
+  pointer-events: none;
+}
+
+.nameReveal.nameRevealVisible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
 .contact {
   font-family: var(--font-struct);
   font-size: 14px;

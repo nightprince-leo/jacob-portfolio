@@ -62,7 +62,7 @@ export default function Hero() {
         {/* Name + title + signature */}
         <div className={styles.identity}>
           <div className={styles.nameBlock}>
-            <span className={styles.siteName}>{SITE.name}</span>
+            <span id="hero-site-name" className={styles.siteName}>{SITE.name}</span>
             <span className={styles.siteTitle}>{SITE.title}</span>
           </div>
           <Signature />
