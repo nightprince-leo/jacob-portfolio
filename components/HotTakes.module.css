@@ -67,9 +67,16 @@
   letter-spacing: -0.01em;
 }
 
+.subtitleWrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
 .subtitle {
   font-family: var(--font-body);
   font-size: 13px;
   color: var(--color-steel);
   line-height: 1.55;
+  margin: 0;
 }

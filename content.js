@@ -306,19 +306,33 @@ export const HOT_TAKES = [
       "The best ideas tend to show up after the input stops. Real divergence needs space.",
       "Get bored. Actually bored.",
       "That's usually where something original shows up.",
-       ],
+    ],
   },
   {
     id: 2,
     image: "/images/hot-take-2.jpg",
-    title: "Placeholder Hot Take Title",
-    subtitle: "A short, punchy subtitle. One sentence. Strong opinion.",
+    title: "Frameworks are documentation, not destination.",
+    subtitle: [
+      "The best team I've worked on didn't rely on process—it operated on shared instinct.",
+      "I'd need something from an engineer by morning, and without asking, it would be done. When a better tool emerged, we tried it and moved on. No ceremony, no process overhaul.",
+      "Frameworks are useful—they capture patterns and help teams get aligned.",
+      "But they're a lagging indicator of how strong teams already work.",
+      "When a team is truly operating well, the process becomes almost invisible.",
+      "If you're spending more time refining the process than moving the work forward, something's off.",
+    ],
   },
   {
     id: 3,
     image: "/images/hot-take-3.jpg",
-    title: "Placeholder Hot Take Title",
-    subtitle: "A short, punchy subtitle. One sentence. Strong opinion.",
+    title: "Trust is a constraint, not a feature.",
+    subtitle: [
+      "On the AB project, a new sales tool had one shot.",
+      "Field sales reps are high-autonomy, deeply experienced, and skeptical of anything that looks like an algorithm telling them what to do.",
+      "We designed for trust from the start—transparent logic, explainable data, and integration that didn't interrupt how they already worked.",
+      "Two months post-launch: 93% weekly adoption.",
+      "That doesn't happen if trust is layered on at the end. In data-heavy products, trust is a constraint you design within from day one.",
+      "You build it slowly, and you can lose it in a single moment.",
+    ]
   },
 ];
 

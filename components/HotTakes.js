@@ -18,7 +18,15 @@ export default function HotTakes() {
               </div>
               <div className={styles.content}>
                 <h3 className={styles.title}>{ht.title}</h3>
-                <p className={styles.subtitle}>{ht.subtitle}</p>
+                <div className={styles.subtitleWrap}>
+                  {(Array.isArray(ht.subtitle) ? ht.subtitle : [ht.subtitle]).map(
+                    (line, i) => (
+                      <p key={i} className={styles.subtitle}>
+                        {line}
+                      </p>
+                    )
+                  )}
+                </div>
               </div>
             </article>
           ))}
