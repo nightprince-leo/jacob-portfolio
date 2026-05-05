@@ -174,7 +174,7 @@ export const CASE_STUDIES = [
     },
     outcomes: [
       { value: 2, display: "2M+", label: "Downloads at launch", prefix: "", suffix: "M+", countTo: 2 },
-      { value: 4.8, display: "4.8★", label: "iOS App Store rating", prefix: "", suffix: "★", countTo: 4 },
+      { value: 4.8, display: "4.8★", label: "iOS App Store rating", prefix: "", suffix: "★", countTo: 4.8 },
       { value: 6, display: "6hr", label: "Radar — first in market", prefix: "", suffix: "hr", countTo: 6 },
       { value: 50, display: "50+", label: "Users polled for homepage", prefix: "", suffix: "+", countTo: 50 },
     ],
