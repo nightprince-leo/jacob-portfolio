@@ -36,7 +36,7 @@ export const CASE_STUDIES = [
     period: "Mar 2019 – Oct 2019",
     tags: ["Enterprise", "B2B", "iOS"],
     teaser: "$37M in SaaS eliminated. 93% AI adoption. A narrow feature request became a platform strategy.",
-    heroImage: "/images/ab-hero.jpg",
+    heroImage: "/images/ab-hero.png",
     available: true,
     meta: {
       role: "Lead Product Designer & Strategic Partner",
@@ -330,7 +330,7 @@ export const HOT_TAKES = [
       "We designed for trust from the start—transparent logic, explainable data, and integration that didn't interrupt how they already worked.",
       "Two months post-launch: 93% weekly adoption.",
       "That doesn't happen if trust is layered on at the end. In data-heavy products, trust is a constraint you design within from day one.",
-      "You build it slowly, and you can lose it in a single moment.",
+      "You build it slowly, but you can lose it in a single moment.",
     ],
   },
 ];
