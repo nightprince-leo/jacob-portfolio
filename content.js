@@ -18,7 +18,7 @@ export const HERO = {
 };
 
 export const CREDIBILITY = {
-  line: "Past clients include IQVIA, Alliant Credit Union,CBC, HBO, and National Geographic.",
+  line: "Past clients include IQVIA, Wyndham Hotels, Alliant Credit Union, CBC, HBO, and National Geographic.",
 };
 
 /** Homepage case study grid — section heading above the cards */
@@ -67,8 +67,8 @@ export const CASE_STUDIES = [
         label: "THE BRIEF — AND WHAT IT WAS ACTUALLY ABOUT",
         annotation: { label: "$37M/yr", sub: "SaaS spend identified at project kickoff" },
         body: [
-          "AB came to us with a focused ask: introduce LOLA, an internal algorithm surfacing localized sales recommendations to field reps. A week into discovery, it was clear that was the wrong problem.",
-          "AB was spending $37M annually across five mobile tools and three legacy systems — none owned, none connected, none giving leadership visibility into how 4,000+ reps actually worked. Introducing LOLA into that ecosystem wouldn't fix anything. It would add noise to a workflow already breaking under its own weight.",
+          "AB came to us with a focused ask: introduce LOLA, an internal algorithm surfacing localized sales recommendations to field reps. A week into discovery, it was clear to me that was the wrong problem.",
+          "AB was spending $37M annually across five mobile tools and three legacy systems — none owned, few connected, giving leadership limited visibility into how 4,000+ reps actually worked. Introducing LOLA into that ecosystem wouldn't fix anything. It would add noise to a workflow already breaking under its own weight.",
         ],
         reframe: {
           from: "\"How do we introduce AI?\"",
@@ -94,7 +94,7 @@ export const CASE_STUDIES = [
         label: "THE PIVOT",
         annotation: { label: "Strategic call", sub: "Presented to St. Louis HQ" },
         body: [
-          "The organization was leaning toward buying more external tools. My engineering lead and I assessed that path — it would deepen fragmentation, not solve it. LOLA needed real order data, trust signals, and seamless workflow integration. A reskinned third-party app could deliver none of those reliably.",
+          "The organization was leaning toward buying an external tool (VIP). My engineering lead and I assessed that path — it would deepen fragmentation, not solve it. LOLA needed real order data, trust signals, and seamless workflow integration. A reskinned third-party app could deliver none of those reliably.",
           "I built the case with engineering, aligned AB's own engineers in advance, and presented the recommendation to St. Louis executives: stop the acquisition, build an owned native iOS platform. They said yes.",
         ],
       },
@@ -299,19 +299,18 @@ export const HOT_TAKES = [
   {
     id: 1,
     image: "/images/hot-take-1.jpg",
-    title: "Curate your inputs, not just your outputs.",
+    title: "Curate your inputs.",
     paragraphs: [
       "Most people focus on refining AI output—better prompts, better generations. Less attention goes to what they consume before they start.",
       "Too much input flattens thinking. Endless inspiration feeds, Pinterest loops, one more prompt tweak—it all converges toward the same ideas.",
       "The best ideas tend to show up after the input stops. Real divergence needs space.",
-      "Get bored. Actually bored.",
-      "That's usually where something original shows up.",
+      "Get bored. Actually bored. That's usually where something original shows up.",
     ],
   },
   {
     id: 2,
     image: "/images/hot-take-2.jpg",
-    title: "Frameworks are documentation, not destination.",
+    title: "Frameworks are documentation, not a destination.",
     paragraphs: [
       "The best team I've worked on didn't rely on process—it operated on shared instinct.",
       "I'd need something from an engineer by morning, and without asking, it would be done. When a better tool emerged, we tried it and moved on. No ceremony, no process overhaul.",
@@ -345,7 +344,7 @@ export const ABOUT = {
 };
 
 export const CONTACT = {
-  headline: "If you're building something hard and need someone who can own the design function — let's talk.",
+  headline: "If you're building something hard and need someone who can own the design — let's talk.",
   email: "jacob.alley21@gmail.com",
   modal: {
     title: "Get in touch",

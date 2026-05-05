@@ -19,26 +19,7 @@ function Signature() {
     }, 1200);
   }, []);
 
-  return (
-    <svg
-      className={styles.signature}
-      viewBox="0 0 200 60"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-label="Jacob Alley signature"
-    >
-      {/* REPLACE THIS PATH with your actual signature SVG path data */}
-      <path
-        ref={pathRef}
-        d="M10 40 C20 10, 40 50, 60 30 C80 10, 90 45, 110 35 C130 25, 140 40, 160 35 C175 30, 185 38, 190 36"
-        stroke="var(--color-steel)"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        fill="none"
-      />
-    </svg>
-  );
+  //insert svg signature here
 }
 
 export default function Hero() {
@@ -98,9 +79,6 @@ export default function Hero() {
         >
           {HERO.subheadline}
         </p>
-
-        {/* Survey annotation mark */}
-        <span className={styles.annotationMark} aria-hidden="true">○</span>
 
       </div>
     </section>
