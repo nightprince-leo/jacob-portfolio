@@ -4,7 +4,6 @@ import {
   useContext,
   useEffect,
   useId,
-  useEffect,
   useRef,
   useState,
 } from 'react';
