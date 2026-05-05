@@ -20,63 +20,145 @@
   margin-bottom: var(--space-8);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: var(--space-3);
-}
-
-.card {
-  position: relative;
+/* Single bordered stack — same hairline / radius as cards */
+.accordion {
   border: 0.5px solid var(--color-hairline);
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--color-paper);
 }
 
-.mark {
-  position: absolute;
-  top: var(--space-2);
-  left: var(--space-2);
-  font-family: var(--font-mono);
-  font-size: 16px;
-  color: var(--color-red);
-  line-height: 1;
-  z-index: 1;
+.item {
+  position: relative;
 }
 
-.imgPlaceholder {
-  height: 160px;
-  background: rgba(200,196,188,0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 0.5px solid var(--color-hairline);
+.item + .item {
+  border-top: 0.5px solid var(--color-hairline);
 }
 
-.content {
-  padding: var(--space-3);
+/* Title inset matches .panelBody horizontal inset */
+.trigger {
+  width: 100%;
+  display: block;
+  padding: var(--space-4) var(--space-5);
+  margin: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: var(--color-ink);
+  transition: background-color 0.35s var(--ease-out);
 }
 
-.title {
+@media (min-width: 900px) {
+  .trigger {
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
+  }
+}
+
+.trigger:hover {
+  background: rgba(200, 196, 188, 0.12);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: -2px;
+}
+
+.triggerTitle {
   font-family: var(--font-struct);
   font-size: 15px;
   font-weight: 500;
-  color: var(--color-ink);
-  margin-bottom: 6px;
   letter-spacing: -0.01em;
+  line-height: 1.35;
 }
 
-.paragraphs {
+/* Smooth height: 0fr → 1fr */
+.panelWrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.65s var(--ease-out);
+}
+
+.panelWrapper[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+
+.panelInner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* 7 / 2 of nine columns: body + flush image strip */
+.panelRow {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-6);
 }
 
-.paragraph {
+@media (min-width: 900px) {
+  .panelRow {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 0;
+    align-items: stretch;
+  }
+
+  /* span 7 again when .imgAside is restored in HotTakes.js */
+  .panelBody {
+    grid-column: span 9;
+  }
+
+  /* .imgAside {
+    grid-column: span 2;
+  } */
+}
+
+.panelBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-5) var(--space-8);
+}
+
+@media (min-width: 900px) {
+  .panelBody {
+    padding: var(--space-3) var(--space-8) var(--space-10);
+    padding-right: 120px;
+  }
+}
+
+/* Match case study body (CaseStudy.module.css .body) */
+.body {
   font-family: var(--font-body);
-  font-size: 13px;
-  color: var(--color-steel);
-  line-height: 1.55;
+  font-size: clamp(15px, 1.6vw, 17px);
+  color: var(--color-ink);
+  line-height: 1.75;
   margin: 0;
+}
+
+/* Flush top, right, bottom to accordion inner edge (no outer padding on those sides) */
+.imgAside {
+  min-height: 160px;
+  background: rgba(200, 196, 188, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 0.5px solid var(--color-hairline);
+  margin: 0;
+  padding: 0 var(--space-3);
+  border-radius: 0;
+}
+
+@media (min-width: 900px) {
+  .imgAside {
+    min-height: 0;
+    margin: 0;
+    padding: 0 var(--space-3);
+    border-top: none;
+    border-left: 0.5px solid var(--color-hairline);
+    align-self: stretch;
+  }
 }
