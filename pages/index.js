@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>{SITE.name} — Senior Product Designer</title>
+        <title>{`${SITE.name} — Senior Product Designer`}</title>
         <meta name="description" content="Senior Product Designer specializing in complex systems, real constraints, and small engineering teams." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

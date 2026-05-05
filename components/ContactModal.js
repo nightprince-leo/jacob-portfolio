@@ -4,7 +4,7 @@ import {
   useContext,
   useEffect,
   useId,
-  useLayoutEffect,
+  useEffect,
   useRef,
   useState,
 } from 'react';
@@ -46,7 +46,7 @@ function ContactModalDialog({ open, onClose }) {
     setSuccess(false);
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!open) return;
     resetForm();
   }, [open, resetForm]);
