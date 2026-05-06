@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import { CASE_STUDIES, CASE_STUDY_CARDS } from '../content';
@@ -31,8 +32,15 @@ function CaseCard({ cs, index }) {
       {/* Image area */}
       <div className={styles.imageWrap}>
         {cs.heroImage && !cs.comingSoon ? (
-          <div className="img-placeholder" style={{ height: '260px' }}>
-            <span>Insert: {cs.client} hero screen</span>
+          <div className={styles.cardImage}>
+            <Image
+              src={cs.heroImage}
+              alt={cs.heroImageAlt ?? ''}
+              fill
+              sizes="(max-width: 768px) 100vw, 420px"
+              style={{ objectFit: 'cover' }}
+              priority={index === 0}
+            />
           </div>
         ) : (
           <div className={`img-placeholder ${styles.comingSoonImg}`} style={{ height: '260px' }}>

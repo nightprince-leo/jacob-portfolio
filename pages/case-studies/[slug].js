@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import Nav from '../../components/Nav';
@@ -193,9 +194,22 @@ export default function CaseStudyPage({ cs }) {
 
           {/* Hero image */}
           <div className={styles.heroImg}>
-            <div className="img-placeholder" style={{ height: '480px' }}>
-              <span>Insert: {cs.client} hero screen</span>
-            </div>
+            {cs.heroImage ? (
+              <div className={styles.heroImgInner}>
+                <Image
+                  src={cs.heroImage}
+                  alt={cs.heroImageAlt ?? ''}
+                  fill
+                  sizes="(max-width: 900px) 100vw, min(1200px, 92vw)"
+                  style={{ objectFit: 'cover' }}
+                  priority
+                />
+              </div>
+            ) : (
+              <div className="img-placeholder" style={{ height: '480px' }}>
+                <span>Insert: {cs.client} hero screen</span>
+              </div>
+            )}
           </div>
         </header>
 

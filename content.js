@@ -37,6 +37,8 @@ export const CASE_STUDIES = [
     tags: ["Enterprise", "B2B", "iOS"],
     teaser: "$37M in SaaS eliminated. 93% AI adoption. A narrow feature request became a platform strategy.",
     heroImage: "/images/ab-hero.png",
+    heroImageAlt:
+      "Anheuser-Busch M360 iOS sales platform — representative interface from the case study.",
     available: true,
     meta: {
       role: "Lead Product Designer & Strategic Partner",
@@ -163,6 +165,8 @@ export const CASE_STUDIES = [
     tags: ["Consumer", "iOS", "Android"],
     teaser: "Saturated market. Immovable deadline. One shot. 2M+ downloads, 4.8★ at launch.",
     heroImage: "/images/fox-hero.jpg",
+    heroImageAlt:
+      "Fox Weather app — representative home screen from the case study.",
     available: true,
     meta: {
       role: "Lead Product Designer",

@@ -51,6 +51,12 @@
   overflow: hidden;
 }
 
+.cardImage {
+  position: relative;
+  width: 100%;
+  height: 260px;
+}
+
 .comingSoonImg {
   opacity: 0.3;
 }
