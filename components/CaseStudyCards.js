@@ -34,11 +34,11 @@ function CaseCard({ cs, index }) {
         {cs.heroImage && !cs.comingSoon ? (
           <div className={styles.cardImage}>
             <Image
-              src={cs.heroImage}
+              src={cs.cardImage ?? cs.heroImage}
               alt={cs.heroImageAlt ?? ''}
               fill
               sizes="(max-width: 768px) 100vw, 420px"
-              style={{ objectFit: 'cover' }}
+              className={styles.cardImageMedia}
               priority={index === 0}
             />
           </div>
