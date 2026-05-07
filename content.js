@@ -137,7 +137,13 @@ export const CASE_STUDIES = [
           "The existing ecosystem had 12+ inconsistent chart types accumulated over years. I proposed consolidating to three: historical trends, current-month performance, incentive tracking.",
           "Regional managers pushed back — their workflows depended on legacy reporting. I ran a working session to map real needs against assumed needs. We chose clarity with extensibility built in.",
         ],
-        figure: { label: "FIG. 04 — DATA VIZ CONSOLIDATION", caption: "Insert: 12 patterns → 3", placeholder: true },
+        figure: {
+          label: "FIG. 04 — DATA VIZ CONSOLIDATION",
+          caption: "12+ chart patterns consolidated into 3 standardized visualization types.",
+          image: "/images/ab_fig4_datavis.png",
+          alt: "Data visualization consolidation from 12 plus chart patterns down to 3 standardized types.",
+          placeholder: false,
+        },
       },
       {
         id: "orderflow",
