@@ -315,6 +315,20 @@
   margin-top: var(--space-4);
 }
 
+.figureImageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.figureImageWrap:focus-visible {
+  outline: 1px solid var(--color-steel);
+  outline-offset: 2px;
+}
+
 .figCaption {
   margin-top: var(--space-1);
   padding-left: var(--space-1);

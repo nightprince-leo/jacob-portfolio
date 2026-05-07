@@ -7,6 +7,7 @@ import Footer from '../../components/Footer';
 import AnnotationRail from '../../components/AnnotationRail';
 import OutcomeNumbers from '../../components/OutcomeNumbers';
 import BeforeAfter from '../../components/BeforeAfter';
+import { useImageLightbox } from '../../components/ImageLightbox';
 import { CASE_STUDIES, SITE } from '../../content';
 import styles from './CaseStudy.module.css';
 
@@ -27,6 +28,42 @@ function FigurePlaceholder({ label, caption }) {
     <div className={styles.figure}>
       <div className="img-placeholder" style={{ height: '360px' }}>
         <span>{label}</span>
+      </div>
+      {caption && <p className={`${styles.figCaption} t-caption`}>{caption}</p>}
+    </div>
+  );
+}
+
+function FigureImage({ label, caption, image, alt }) {
+  const { openImage } = useImageLightbox();
+
+  const handleExpand = () => {
+    openImage(image, alt ?? label ?? '');
+  };
+
+  const handleExpandKey = (event) => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    handleExpand();
+  };
+
+  return (
+    <div className={styles.figure}>
+      <div
+        className={styles.figureImageWrap}
+        role="button"
+        tabIndex={0}
+        aria-label={`Expand ${label}`}
+        onClick={handleExpand}
+        onKeyDown={handleExpandKey}
+      >
+        <Image
+          src={image}
+          alt={alt ?? label ?? ''}
+          fill
+          sizes="(max-width: 900px) 100vw, 72vw"
+          style={{ objectFit: 'cover' }}
+        />
       </div>
       {caption && <p className={`${styles.figCaption} t-caption`}>{caption}</p>}
     </div>
@@ -111,6 +148,14 @@ function SectionBlock({ section }) {
           )}
 
           {/* Figure */}
+          {section.figure?.image && (
+            <FigureImage
+              label={section.figure.label}
+              caption={section.figure.caption}
+              image={section.figure.image}
+              alt={section.figure.alt}
+            />
+          )}
           {section.figure?.placeholder && (
             <FigurePlaceholder
               label={section.figure.label}

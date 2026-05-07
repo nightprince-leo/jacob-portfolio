@@ -77,7 +77,13 @@ export const CASE_STUDIES = [
           from: "\"How do we introduce AI?\"",
           to: "\"How do we take back control of the sales ecosystem?\"",
         },
-        figure: { label: "FIG. 01 — FIELD SALES REP WORKFLOW, PRE-M360", caption: "3 critical failure points identified · ride-alongs + engineering documentation · Feb 2019", placeholder: true },
+        figure: {
+          label: "FIG. 01 — FIELD SALES REP WORKFLOW, PRE-M360",
+          caption: "3 critical failure points identified · ride-alongs + engineering documentation · Feb 2019",
+          image: "/images/ab_fig1_preM360.png",
+          alt: "Field sales representative workflow before M360, showing key failure points.",
+          placeholder: false,
+        },
       },
       {
         id: "discovery",
@@ -90,7 +96,13 @@ export const CASE_STUDIES = [
           text: "\"We have a whole damn marketing department — and they're making their own presentations?\"",
           attribution: "— Anheuser-Busch Executive, 2019",
         },
-        figure: { label: "FIG. 02 — FIELD RESEARCH", caption: "Insert: journey map / annotated field findings", placeholder: true },
+        figure: {
+          label: "FIG. 02 — FIELD RESEARCH",
+          caption: "Journey map and annotated findings from field ride-alongs.",
+          image: "/images/ab_fig2_fieldResearch.png",
+          alt: "Field research synthesis with journey map and annotated findings.",
+          placeholder: false,
+        },
       },
       {
         id: "pivot",
