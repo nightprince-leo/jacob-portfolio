@@ -122,7 +122,13 @@ export const CASE_STUDIES = [
           "I shifted to a task-focused architecture: speed in the moment, reduced cognitive load, built to scale.",
           "Interactive planograms scored high in the feature prioritization workshop — but sized as an XL against a fixed timeline, we cut it before it became a liability. The golden path was ordering and LOLA. Everything else waited.",
         ],
-        figure: { label: "FIG. 03 — ARCHITECTURE DECISION", caption: "Insert: dashboard vs. task-focused comparison", placeholder: true },
+        figure: {
+          label: "FIG. 03 — ARCHITECTURE DECISION",
+          caption: "Dashboard-based vs task-focused architecture comparison.",
+          image: "/images/ab_fig3_architecture.png",
+          alt: "Comparison of dashboard-based and task-focused architectures for the AB M360 platform.",
+          placeholder: false,
+        },
       },
       {
         id: "dataviz",
