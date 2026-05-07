@@ -1,0 +1,57 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(246, 243, 238, 0.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3);
+}
+
+.shell {
+  width: min(1200px, 100%);
+  height: calc(100vh - (var(--space-3) * 2));
+  max-height: calc(100vh - (var(--space-3) * 2));
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.topBar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.closeButton {
+  border: 0.5px solid var(--color-hairline);
+  border-radius: var(--radius);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: background 0.2s var(--ease-out), color 0.2s var(--ease-out);
+}
+
+.closeButton:hover {
+  background: #ffffff;
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 240px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 0.5px solid var(--color-hairline);
+  background: var(--color-paper);
+}
+
+.image {
+  object-fit: contain;
+}
