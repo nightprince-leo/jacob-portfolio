@@ -389,7 +389,8 @@ export default function CaseStudyPage({ cs }) {
                   alt={cs.heroImageAlt ?? ''}
                   fill
                   sizes="(max-width: 900px) 100vw, min(1200px, 92vw)"
-                  style={{ objectFit: 'cover' }}
+                  quality={95}
+                  className={styles.heroImageMedia}
                   priority
                 />
               </div>

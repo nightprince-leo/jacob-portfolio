@@ -131,6 +131,21 @@
   height: 480px;
 }
 
+.heroImageMedia {
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 768px) {
+  .heroImgInner {
+    height: 360px;
+  }
+
+  .heroImageMedia {
+    object-position: top center;
+  }
+}
+
 /* Outcomes */
 .outcomes {
   padding: var(--space-8) 0;
