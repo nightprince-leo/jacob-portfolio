@@ -25,19 +25,15 @@ export async function getStaticProps({ params }) {
   return { props: { cs } };
 }
 
-function FigurePlaceholder({ label, caption }) {
-  return (
-    <div className={styles.figure}>
-      <div className="img-placeholder" style={{ height: '360px' }}>
-        <span>{label}</span>
-      </div>
-      {caption && <p className={`${styles.figCaption} t-caption`}>{caption}</p>}
-    </div>
-  );
-}
-
-function FigureImage({ label, caption, image, alt, magnify = false }) {
+function FigureImage({ label, caption, image, images, alt, magnify = false }) {
   const { openImage } = useImageLightbox();
+  const resolvedImages = images?.length
+    ? images
+    : image
+      ? [{ src: image, alt: alt ?? label ?? '' }]
+      : [];
+  const primaryImage = resolvedImages[0];
+  const magnifyEnabled = magnify && resolvedImages.length === 1;
   const imageWrapRef = useRef(null);
   const [canHoverMagnify, setCanHoverMagnify] = useState(false);
   const [lensVisible, setLensVisible] = useState(false);
@@ -54,7 +50,7 @@ function FigureImage({ label, caption, image, alt, magnify = false }) {
   }, []);
 
   useEffect(() => {
-    if (!magnify || !canHoverMagnify) return undefined;
+    if (!magnifyEnabled || !canHoverMagnify) return undefined;
 
     const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
@@ -104,50 +100,85 @@ function FigureImage({ label, caption, image, alt, magnify = false }) {
 
     window.addEventListener('mousemove', handleWindowMouseMove);
     return () => window.removeEventListener('mousemove', handleWindowMouseMove);
-  }, [magnify, canHoverMagnify]);
+  }, [magnifyEnabled, canHoverMagnify]);
 
-  const handleExpand = () => {
-    openImage(image, alt ?? label ?? '');
+  const handleExpand = (src, imageAlt) => {
+    openImage(src, imageAlt ?? label ?? '');
   };
 
-  const handleExpandKey = (event) => {
+  const handleExpandKey = (event, src, imageAlt) => {
     if (event.key !== 'Enter' && event.key !== ' ') return;
     event.preventDefault();
-    handleExpand();
+    handleExpand(src, imageAlt);
   };
 
   return (
     <div className={styles.figure}>
       <div
-        ref={imageWrapRef}
-        className={styles.figureImageWrap}
-        role="button"
-        tabIndex={0}
-        aria-label={`Expand ${label}`}
-        onClick={handleExpand}
-        onKeyDown={handleExpandKey}
+        className={`${styles.figureImageWrap} ${resolvedImages.length > 1 ? styles.figureImageWrapMulti : ''}`}
       >
-        <div className={styles.figureImageFrame}>
-          <Image
-            src={image}
-            alt={alt ?? label ?? ''}
-            fill
-            sizes="(max-width: 900px) 100vw, 72vw"
-            style={{ objectFit: 'cover' }}
-          />
+        <div
+          ref={imageWrapRef}
+          className={`${styles.figureImageStack} ${resolvedImages.length > 1 ? styles.figureImageStackMulti : ''}`}
+        >
+          {resolvedImages.map((img, idx) => (
+            <div
+              key={`${img.src}-${idx}`}
+              className={styles.figureImageItem}
+              role="button"
+              tabIndex={0}
+              aria-label={`Expand ${label}${resolvedImages.length > 1 ? ` image ${idx + 1}` : ''}`}
+              onClick={() => handleExpand(img.src, img.alt)}
+              onKeyDown={(event) => handleExpandKey(event, img.src, img.alt)}
+            >
+              <div className={styles.figureImageFrame}>
+                <Image
+                  src={img.src}
+                  alt={img.alt ?? label ?? ''}
+                  fill
+                  sizes="(max-width: 900px) 100vw, 72vw"
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
+            </div>
+          ))}
         </div>
-        {magnify && canHoverMagnify && lensVisible ? (
+        {magnifyEnabled && canHoverMagnify && lensVisible ? (
           <span
             className={styles.magnifierLens}
             aria-hidden="true"
             style={{
               left: `${lensPosition.x}%`,
               top: `${lensPosition.y}%`,
-              backgroundImage: `url(${image})`,
+              backgroundImage: `url(${primaryImage.src})`,
               backgroundPosition: `${samplePosition.x}% ${samplePosition.y}%`,
             }}
           />
         ) : null}
+      </div>
+      {caption && <p className={`${styles.figCaption} t-caption`}>{caption}</p>}
+    </div>
+  );
+}
+
+function FigureSinglePlaceholder({ label, caption }) {
+  return (
+    <div className={styles.figure}>
+      <div
+        className={styles.figureImageWrap}
+        role="button"
+        tabIndex={0}
+        aria-label={`Expand ${label}`}
+      >
+        <div className={styles.figureImageStack}>
+          <div className={styles.figureImageItem}>
+            <div className={styles.figureImageFrame}>
+              <div className="img-placeholder" style={{ height: '360px' }}>
+                <span>{label}</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       {caption && <p className={`${styles.figCaption} t-caption`}>{caption}</p>}
     </div>
@@ -232,17 +263,18 @@ function SectionBlock({ section }) {
           )}
 
           {/* Figure */}
-          {section.figure?.image && (
+          {(section.figure?.image || section.figure?.images?.length > 0) && (
             <FigureImage
               label={section.figure.label}
               caption={section.figure.caption}
               image={section.figure.image}
+              images={section.figure.images}
               alt={section.figure.alt}
               magnify={section.figure.magnify}
             />
           )}
           {section.figure?.placeholder && (
-            <FigurePlaceholder
+            <FigureSinglePlaceholder
               label={section.figure.label}
               caption={section.figure.caption}
             />

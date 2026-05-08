@@ -159,7 +159,21 @@ export const CASE_STUDIES = [
           { title: "Speed and flexibility.", body: "Custom stepper and dropdown for fast quantity input. Smart defaults. Inline progress tracking to prevent lost orders." },
         ],
         result: "129 → 27 clicks. 14% increase in sales.",
-        figure: { label: "FIG. 05 — ORDER FLOW EVOLUTION", caption: "Insert: before/after order flow", placeholder: true },
+        figure: {
+          label: "FIG. 05 — ORDER FLOW EVOLUTION",
+          caption: "Before and after order flow artifacts.",
+          images: [
+            {
+              src: "/images/ab_fig5a_oldOrderFlow.png",
+              alt: "Original M360 order flow artifact before redesign.",
+            },
+            {
+              src: "/images/ab_fig5b_orderFlow.png",
+              alt: "Updated M360 order flow artifact after redesign.",
+            },
+          ],
+          placeholder: false,
+        },
       },
       {
         id: "lola",
@@ -169,7 +183,13 @@ export const CASE_STUDIES = [
           "Two months post-launch, 93% of reps engaged with LOLA weekly.",
           "For a high-autonomy, deeply skeptical sales force that didn't trust tools or algorithms — that number doesn't happen by accident. It happens when the trust signals are visible, the integration is invisible, and the container is finally right.",
         ],
-        figure: { label: "FIG. 06 — LOLA RECOMMENDATION SCREEN", caption: "Insert: trust metrics visible in UI", placeholder: true },
+        figure: {
+          label: "FIG. 06 — LOLA RECOMMENDATION SCREEN",
+          caption: "LOLA recommendation interface with visible trust signals.",
+          image: "/images/ab_fig6_LOLA.png",
+          alt: "LOLA recommendation screen showing transparent recommendation context.",
+          placeholder: false,
+        },
       },
       {
         id: "reflection",

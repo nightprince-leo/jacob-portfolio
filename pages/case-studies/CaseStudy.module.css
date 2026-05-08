@@ -324,9 +324,36 @@
   cursor: zoom-in;
 }
 
+.figureImageWrapMulti {
+  aspect-ratio: auto;
+  cursor: default;
+}
+
 .figureImageWrap:focus-visible {
   outline: 1px solid var(--color-steel);
   outline-offset: 2px;
+}
+
+.figureImageStack {
+  position: absolute;
+  inset: 0;
+}
+
+.figureImageStackMulti {
+  position: relative;
+  inset: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.figureImageItem {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: zoom-in;
 }
 
 .figureImageFrame {
