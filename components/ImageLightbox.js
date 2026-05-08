@@ -6,7 +6,6 @@ import {
   useMemo,
   useState,
 } from 'react';
-import Image from 'next/image';
 import { createPortal } from 'react-dom';
 import styles from './ImageLightbox.module.css';
 
@@ -50,13 +49,11 @@ function ImageLightboxDialog({ open, image, onClose }) {
           </button>
         </div>
         <div className={styles.imageWrap}>
-          <Image
+          <img
             src={image.src}
             alt={image.alt ?? ''}
-            fill
-            sizes="100vw"
             className={styles.image}
-            priority
+            loading="lazy"
           />
         </div>
       </div>

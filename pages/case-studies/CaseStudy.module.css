@@ -322,14 +322,10 @@
 .figureImageWrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: var(--radius);
   overflow: visible;
-  cursor: zoom-in;
 }
 
 .figureImageWrapMulti {
-  aspect-ratio: auto;
   cursor: default;
 }
 
@@ -347,13 +343,11 @@
 }
 
 .figureImageStack {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  width: 100%;
 }
 
 .figureImageStackMulti {
-  position: relative;
-  inset: auto;
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
@@ -362,17 +356,20 @@
 .figureImageItem {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
   border-radius: var(--radius);
   overflow: hidden;
   cursor: zoom-in;
 }
 
 .figureImageFrame {
-  position: absolute;
-  inset: 0;
-  border-radius: var(--radius);
-  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.figureImageMedia {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .magnifierLens {

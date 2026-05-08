@@ -143,12 +143,11 @@ function FigureImage({ label, caption, image, images, alt, magnify = false, magn
               onKeyDown={(event) => handleExpandKey(event, img.src, img.alt)}
             >
               <div className={styles.figureImageFrame}>
-                <Image
+                <img
                   src={img.src}
                   alt={img.alt ?? label ?? ''}
-                  fill
-                  sizes="(max-width: 900px) 100vw, 72vw"
-                  style={{ objectFit: 'cover' }}
+                  className={styles.figureImageMedia}
+                  loading="lazy"
                 />
               </div>
             </div>
