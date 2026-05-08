@@ -162,6 +162,8 @@ export const CASE_STUDIES = [
         figure: {
           label: "FIG. 05 — ORDER FLOW EVOLUTION",
           caption: "Before and after order flow artifacts.",
+          magnify: true,
+          magnifyTargetIndex: 1,
           images: [
             {
               src: "/images/ab_fig5a_oldOrderFlow.png",
@@ -188,6 +190,22 @@ export const CASE_STUDIES = [
           caption: "LOLA recommendation interface with visible trust signals.",
           image: "/images/ab_fig6_LOLA.png",
           alt: "LOLA recommendation screen showing transparent recommendation context.",
+          placeholder: false,
+        },
+      },
+      {
+        id: "design-system",
+        label: "DESIGN SYSTEM",
+        annotation: { label: "Placeholder", sub: "Swap with final design system narrative" },
+        body: [
+          "Placeholder copy: describe how the design system was structured, which components were standardized, and how consistency was maintained across workflows.",
+          "Placeholder copy: include the implementation approach, collaboration model with engineering, and how the system supported speed without sacrificing clarity.",
+        ],
+        figure: {
+          label: "FIG. 07 — DESIGN SYSTEM",
+          caption: "Design system artifact showing components, patterns, and implementation structure.",
+          image: "/images/ab_fig7_DS.png",
+          alt: "Anheuser-Busch design system artifact with components, patterns, and documentation structure.",
           placeholder: false,
         },
       },

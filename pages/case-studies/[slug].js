@@ -25,19 +25,25 @@ export async function getStaticProps({ params }) {
   return { props: { cs } };
 }
 
-function FigureImage({ label, caption, image, images, alt, magnify = false }) {
+function FigureImage({ label, caption, image, images, alt, magnify = false, magnifyTargetIndex }) {
   const { openImage } = useImageLightbox();
   const resolvedImages = images?.length
     ? images
     : image
       ? [{ src: image, alt: alt ?? label ?? '' }]
       : [];
-  const primaryImage = resolvedImages[0];
-  const magnifyEnabled = magnify && resolvedImages.length === 1;
+  const normalizedTargetIndex = Number.isInteger(magnifyTargetIndex)
+    ? Math.max(0, Math.min(resolvedImages.length - 1, magnifyTargetIndex))
+    : 0;
+  const magnifyImage = magnify && resolvedImages.length > 0
+    ? resolvedImages[normalizedTargetIndex]
+    : null;
+  const magnifyEnabled = Boolean(magnifyImage);
   const imageWrapRef = useRef(null);
+  const magnifyTargetRef = useRef(null);
   const [canHoverMagnify, setCanHoverMagnify] = useState(false);
   const [lensVisible, setLensVisible] = useState(false);
-  const [lensPosition, setLensPosition] = useState({ x: 50, y: 50 });
+  const [lensPosition, setLensPosition] = useState({ x: 0, y: 0 });
   const [samplePosition, setSamplePosition] = useState({ x: 50, y: 50 });
 
   useEffect(() => {
@@ -55,9 +61,11 @@ function FigureImage({ label, caption, image, images, alt, magnify = false }) {
     const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
     const handleWindowMouseMove = (event) => {
-      const el = imageWrapRef.current;
-      if (!el) return;
-      const bounds = el.getBoundingClientRect();
+      const wrapEl = imageWrapRef.current;
+      const targetEl = magnifyTargetRef.current;
+      if (!wrapEl || !targetEl) return;
+      const wrapBounds = wrapEl.getBoundingClientRect();
+      const bounds = targetEl.getBoundingClientRect();
       const withinHorizontal =
         event.clientX >= bounds.left - MAGNIFIER_ACTIVATION_PADDING &&
         event.clientX <= bounds.right + MAGNIFIER_ACTIVATION_PADDING;
@@ -86,10 +94,12 @@ function FigureImage({ label, caption, image, images, alt, magnify = false }) {
 
       const sampleXPx = clamp(localX, 0, bounds.width);
       const sampleYPx = clamp(localY, 0, bounds.height);
+      const targetOffsetLeft = bounds.left - wrapBounds.left;
+      const targetOffsetTop = bounds.top - wrapBounds.top;
 
       setLensPosition({
-        x: (displayXPx / bounds.width) * 100,
-        y: (displayYPx / bounds.height) * 100,
+        x: targetOffsetLeft + displayXPx,
+        y: targetOffsetTop + displayYPx,
       });
       setSamplePosition({
         x: (sampleXPx / bounds.width) * 100,
@@ -115,7 +125,7 @@ function FigureImage({ label, caption, image, images, alt, magnify = false }) {
   return (
     <div className={styles.figure}>
       <div
-        className={`${styles.figureImageWrap} ${resolvedImages.length > 1 ? styles.figureImageWrapMulti : ''}`}
+        className={`${styles.figureImageWrap} ${resolvedImages.length > 1 ? styles.figureImageWrapMulti : ''} ${magnifyEnabled ? styles.figureImageWrapMagnify : ''}`}
       >
         <div
           ref={imageWrapRef}
@@ -124,6 +134,7 @@ function FigureImage({ label, caption, image, images, alt, magnify = false }) {
           {resolvedImages.map((img, idx) => (
             <div
               key={`${img.src}-${idx}`}
+              ref={idx === normalizedTargetIndex ? magnifyTargetRef : null}
               className={styles.figureImageItem}
               role="button"
               tabIndex={0}
@@ -148,10 +159,20 @@ function FigureImage({ label, caption, image, images, alt, magnify = false }) {
             className={styles.magnifierLens}
             aria-hidden="true"
             style={{
-              left: `${lensPosition.x}%`,
-              top: `${lensPosition.y}%`,
-              backgroundImage: `url(${primaryImage.src})`,
+              left: `${lensPosition.x}px`,
+              top: `${lensPosition.y}px`,
+              backgroundImage: `url(${magnifyImage.src})`,
               backgroundPosition: `${samplePosition.x}% ${samplePosition.y}%`,
+            }}
+          />
+        ) : null}
+        {magnifyEnabled && canHoverMagnify && lensVisible ? (
+          <span
+            className={styles.magnifierCursorDot}
+            aria-hidden="true"
+            style={{
+              left: `${lensPosition.x}px`,
+              top: `${lensPosition.y}px`,
             }}
           />
         ) : null}
@@ -271,6 +292,7 @@ function SectionBlock({ section }) {
               images={section.figure.images}
               alt={section.figure.alt}
               magnify={section.figure.magnify}
+              magnifyTargetIndex={section.figure.magnifyTargetIndex}
             />
           )}
           {section.figure?.placeholder && (
