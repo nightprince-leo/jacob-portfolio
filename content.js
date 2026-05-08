@@ -196,10 +196,10 @@ export const CASE_STUDIES = [
       {
         id: "design-system",
         label: "DESIGN SYSTEM",
-        annotation: { label: "Placeholder", sub: "Swap with final design system narrative" },
+        annotation: { label: "Figma Design System", sub: "Built in parallel with engineering" },
         body: [
-          "Placeholder copy: describe how the design system was structured, which components were standardized, and how consistency was maintained across workflows.",
-          "Placeholder copy: include the implementation approach, collaboration model with engineering, and how the system supported speed without sacrificing clarity.",
+          "M360 required a design system built in parallel with engineering — not before. With a fixed timeline and developers onboarding within a week of the architecture decision, there was no runway for a polished system before screens were needed. What existed in those early weeks was a living Figma file with rules at the top: base-8 grid, Proxima Nova, role-based color tokens. Proximity to engineering replaced documentation.",
+          "The system scaled as the product did — components defined as decisions were made, not in advance. Role-based architecture required distinct visual states for different user contexts. The token structure was built to accommodate AB's quarterly data endpoint changes without requiring redesign. What shipped was a system designed to be extended, not completed.",
         ],
         figure: {
           label: "FIG. 07 — DESIGN SYSTEM",
