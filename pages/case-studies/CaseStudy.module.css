@@ -320,13 +320,33 @@
   width: 100%;
   aspect-ratio: 16 / 10;
   border-radius: var(--radius);
-  overflow: hidden;
+  overflow: visible;
   cursor: zoom-in;
 }
 
 .figureImageWrap:focus-visible {
   outline: 1px solid var(--color-steel);
   outline-offset: 2px;
+}
+
+.figureImageFrame {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.magnifierLens {
+  --lens-size: 200px;
+  position: absolute;
+  width: var(--lens-size);
+  height: var(--lens-size);
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  border: 0.5px solid var(--color-hairline);
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: 800%;
 }
 
 .figCaption {

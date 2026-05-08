@@ -142,6 +142,7 @@ export const CASE_STUDIES = [
           caption: "12+ chart patterns consolidated into 3 standardized visualization types.",
           image: "/images/ab_fig4_datavis.png",
           alt: "Data visualization consolidation from 12 plus chart patterns down to 3 standardized types.",
+          magnify: true,
           placeholder: false,
         },
       },

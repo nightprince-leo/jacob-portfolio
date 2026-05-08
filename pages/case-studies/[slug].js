@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Nav from '../../components/Nav';
 import Footer from '../../components/Footer';
 import AnnotationRail from '../../components/AnnotationRail';
@@ -10,6 +10,8 @@ import BeforeAfter from '../../components/BeforeAfter';
 import { useImageLightbox } from '../../components/ImageLightbox';
 import { CASE_STUDIES, SITE } from '../../content';
 import styles from './CaseStudy.module.css';
+
+const MAGNIFIER_ACTIVATION_PADDING = 50;
 
 export async function getStaticPaths() {
   const paths = CASE_STUDIES
@@ -34,8 +36,75 @@ function FigurePlaceholder({ label, caption }) {
   );
 }
 
-function FigureImage({ label, caption, image, alt }) {
+function FigureImage({ label, caption, image, alt, magnify = false }) {
   const { openImage } = useImageLightbox();
+  const imageWrapRef = useRef(null);
+  const [canHoverMagnify, setCanHoverMagnify] = useState(false);
+  const [lensVisible, setLensVisible] = useState(false);
+  const [lensPosition, setLensPosition] = useState({ x: 50, y: 50 });
+  const [samplePosition, setSamplePosition] = useState({ x: 50, y: 50 });
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const media = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const update = () => setCanHoverMagnify(media.matches);
+    update();
+    media.addEventListener('change', update);
+    return () => media.removeEventListener('change', update);
+  }, []);
+
+  useEffect(() => {
+    if (!magnify || !canHoverMagnify) return undefined;
+
+    const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+
+    const handleWindowMouseMove = (event) => {
+      const el = imageWrapRef.current;
+      if (!el) return;
+      const bounds = el.getBoundingClientRect();
+      const withinHorizontal =
+        event.clientX >= bounds.left - MAGNIFIER_ACTIVATION_PADDING &&
+        event.clientX <= bounds.right + MAGNIFIER_ACTIVATION_PADDING;
+      const withinVertical =
+        event.clientY >= bounds.top - MAGNIFIER_ACTIVATION_PADDING &&
+        event.clientY <= bounds.bottom + MAGNIFIER_ACTIVATION_PADDING;
+
+      if (!withinHorizontal || !withinVertical) {
+        setLensVisible(false);
+        return;
+      }
+
+      const localX = event.clientX - bounds.left;
+      const localY = event.clientY - bounds.top;
+
+      const displayXPx = clamp(
+        localX,
+        -MAGNIFIER_ACTIVATION_PADDING,
+        bounds.width + MAGNIFIER_ACTIVATION_PADDING
+      );
+      const displayYPx = clamp(
+        localY,
+        -MAGNIFIER_ACTIVATION_PADDING,
+        bounds.height + MAGNIFIER_ACTIVATION_PADDING
+      );
+
+      const sampleXPx = clamp(localX, 0, bounds.width);
+      const sampleYPx = clamp(localY, 0, bounds.height);
+
+      setLensPosition({
+        x: (displayXPx / bounds.width) * 100,
+        y: (displayYPx / bounds.height) * 100,
+      });
+      setSamplePosition({
+        x: (sampleXPx / bounds.width) * 100,
+        y: (sampleYPx / bounds.height) * 100,
+      });
+      setLensVisible(true);
+    };
+
+    window.addEventListener('mousemove', handleWindowMouseMove);
+    return () => window.removeEventListener('mousemove', handleWindowMouseMove);
+  }, [magnify, canHoverMagnify]);
 
   const handleExpand = () => {
     openImage(image, alt ?? label ?? '');
@@ -50,6 +119,7 @@ function FigureImage({ label, caption, image, alt }) {
   return (
     <div className={styles.figure}>
       <div
+        ref={imageWrapRef}
         className={styles.figureImageWrap}
         role="button"
         tabIndex={0}
@@ -57,13 +127,27 @@ function FigureImage({ label, caption, image, alt }) {
         onClick={handleExpand}
         onKeyDown={handleExpandKey}
       >
-        <Image
-          src={image}
-          alt={alt ?? label ?? ''}
-          fill
-          sizes="(max-width: 900px) 100vw, 72vw"
-          style={{ objectFit: 'cover' }}
-        />
+        <div className={styles.figureImageFrame}>
+          <Image
+            src={image}
+            alt={alt ?? label ?? ''}
+            fill
+            sizes="(max-width: 900px) 100vw, 72vw"
+            style={{ objectFit: 'cover' }}
+          />
+        </div>
+        {magnify && canHoverMagnify && lensVisible ? (
+          <span
+            className={styles.magnifierLens}
+            aria-hidden="true"
+            style={{
+              left: `${lensPosition.x}%`,
+              top: `${lensPosition.y}%`,
+              backgroundImage: `url(${image})`,
+              backgroundPosition: `${samplePosition.x}% ${samplePosition.y}%`,
+            }}
+          />
+        ) : null}
       </div>
       {caption && <p className={`${styles.figCaption} t-caption`}>{caption}</p>}
     </div>
@@ -154,6 +238,7 @@ function SectionBlock({ section }) {
               caption={section.figure.caption}
               image={section.figure.image}
               alt={section.figure.alt}
+              magnify={section.figure.magnify}
             />
           )}
           {section.figure?.placeholder && (
