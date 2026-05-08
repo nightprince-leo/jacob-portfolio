@@ -194,7 +194,12 @@ function FigureSinglePlaceholder({ label, caption }) {
           <div className={styles.figureImageItem}>
             <div className={styles.figureImageFrame}>
               <div className="img-placeholder" style={{ height: '360px' }}>
-                <span>{label}</span>
+                <div className={styles.placeholderCopy}>
+                  <span>{label}</span>
+                  <span className={styles.placeholderSub}>
+                    Case study in progress — additional artifacts being added.
+                  </span>
+                </div>
               </div>
             </div>
           </div>
