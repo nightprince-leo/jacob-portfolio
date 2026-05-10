@@ -409,6 +409,7 @@ export const ABOUT = {
     "I do my best thinking in the room — whiteboard, engineers, real problem in front of us.",
     "I've spent the last decade working on products with real constraints: complex systems, small teams, and decisions that actually matter.",
     "Outside of work, I'm a gardener and a gamer. Gardens are relaxing and don't tolerate shortcuts. Strategy games scratch the same itch—clear rules, many paths, no perfect answer.",
+    "I’m comfortable working close to code: building and maintaining Storybook components, writing CSS, reviewing implementation details, and partnering with engineers on component architecture, states, and system behavior.",
   ],
 };
 
