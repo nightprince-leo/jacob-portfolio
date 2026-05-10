@@ -3,7 +3,7 @@ import { HOT_TAKES } from '../content';
 import styles from './HotTakes.module.css';
 
 export default function HotTakes() {
-  const [openId, setOpenId] = useState(HOT_TAKES[0]?.id ?? null);
+  const [openId, setOpenId] = useState(null);
   const baseId = useId();
 
   return (

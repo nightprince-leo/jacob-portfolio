@@ -9,6 +9,20 @@
   padding: 0 var(--space-10);
 }
 
+@media (min-width: 900px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    column-gap: 0;
+  }
+
+  /* Content band: columns 3–9 (7 cols), matches site grid */
+  .header,
+  .accordion {
+    grid-column: 3 / span 7;
+  }
+}
+
 @media (max-width: 768px) {
   .container { padding: 0 var(--space-3); }
 }
