@@ -290,7 +290,13 @@ export const CASE_STUDIES = [
           "The final design diverges from that ranking — deliberately. Quantitative data tells you what users value. Qualitative research tells you what they actually do. What it showed: people open a weather app to answer one question first. What's it like right now?",
           "The 6-hour precipitation graph extends the same visual language as the temperature arc: an x-y graph that makes change over time immediately readable. Consistency over novelty.",
         ],
-        figure: { label: "FIG. 02 — RESEARCH VS. FINAL DESIGN", caption: "Insert: quant ranking alongside final home screen", placeholder: true },
+        figure: {
+          label: "FIG. 02 — RESEARCH VS. FINAL DESIGN",
+          caption: "Quant research ranking alongside the final home screen direction.",
+          image: "/images/fox_fig1a_visualDirection.png",
+          alt: "Fox Weather research ranking compared to the final home screen design.",
+          placeholder: false,
+        },
       },
       {
         id: "system",
