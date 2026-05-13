@@ -278,7 +278,13 @@ export const CASE_STUDIES = [
           "I developed two directions — Immersive Imagery and Energetic Illustration — both anchored in clarity, differentiated by feel. Both ran against Fox's other app brands. That was intentional.",
           "Six weeks in I flew to New York with my PM and tech lead. I held the line on the data visualization when they pushed back — the research was in the next slides. Energetic Illustration won. The room left excited.",
         ],
-        figure: { label: "FIG. 01 — VISUAL DIRECTION COMPARISON", caption: "Insert: immersive imagery vs energetic illustration", placeholder: true },
+        figure: {
+          label: "FIG. 01 — VISUAL DIRECTION COMPARISON",
+          caption: "Immersive imagery vs energetic illustration — two directions anchored in clarity.",
+          image: "/images/fox_fig1a_visualDirection.png",
+          alt: "Fox Weather visual direction comparison: immersive imagery and energetic illustration.",
+          placeholder: false,
+        },
       },
       {
         id: "homepage",
@@ -290,13 +296,7 @@ export const CASE_STUDIES = [
           "The final design diverges from that ranking — deliberately. Quantitative data tells you what users value. Qualitative research tells you what they actually do. What it showed: people open a weather app to answer one question first. What's it like right now?",
           "The 6-hour precipitation graph extends the same visual language as the temperature arc: an x-y graph that makes change over time immediately readable. Consistency over novelty.",
         ],
-        figure: {
-          label: "FIG. 02 — RESEARCH VS. FINAL DESIGN",
-          caption: "Quant research ranking alongside the final home screen direction.",
-          image: "/images/fox_fig1a_visualDirection.png",
-          alt: "Fox Weather research ranking compared to the final home screen design.",
-          placeholder: false,
-        },
+        figure: { label: "FIG. 02 — RESEARCH VS. FINAL DESIGN", caption: "Insert: quant ranking alongside final home screen", placeholder: true },
       },
       {
         id: "system",
