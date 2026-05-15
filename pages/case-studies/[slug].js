@@ -13,6 +13,12 @@ import styles from './CaseStudy.module.css';
 
 const MAGNIFIER_ACTIVATION_PADDING = 50;
 
+/** Reveal only after a meaningful slice of the section is in the readable viewport */
+const SCROLL_REVEAL_OPTIONS = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -12% 0px',
+};
+
 export async function getStaticPaths() {
   const paths = CASE_STUDIES
     .filter(cs => cs.available)
@@ -223,7 +229,7 @@ function SectionBlock({ section }) {
           observer.disconnect();
         }
       },
-      { threshold: 0.08 }
+      SCROLL_REVEAL_OPTIONS
     );
     observer.observe(el);
     return () => observer.disconnect();

@@ -14,7 +14,7 @@ export default function AnnotationRail({ label, sub, children }) {
           observer.disconnect();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.15, rootMargin: '0px 0px -12% 0px' }
     );
     observer.observe(el);
     return () => observer.disconnect();
