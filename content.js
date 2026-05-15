@@ -35,7 +35,7 @@ export const CASE_STUDIES = [
     via: "via Willowtree Apps",
     period: "Mar 2019 – Oct 2019",
     tags: ["Enterprise", "B2B", "iOS"],
-    teaser: "$37M in SaaS eliminated. 93% AI adoption. A narrow feature request became a platform strategy.",
+    teaser: "$37M in SaaS eliminated. 93% AI adoption. I turned a narrow feature request into a platform strategy.",
     heroImage: "/images/ab_case_hero.png",
     cardImage: "/images/ab_card_hero.png",
     heroImageAlt:
