@@ -296,7 +296,13 @@ export const CASE_STUDIES = [
           "The final design diverges from that ranking — deliberately. Quantitative data tells you what users value. Qualitative research tells you what they actually do. What it showed: people open a weather app to answer one question first. What's it like right now?",
           "The 6-hour precipitation graph extends the same visual language as the temperature arc: an x-y graph that makes change over time immediately readable. Consistency over novelty.",
         ],
-        figure: { label: "FIG. 02 — RESEARCH VS. FINAL DESIGN", caption: "Insert: quant ranking alongside final home screen", placeholder: true },
+        figure: {
+          label: "FIG. 02 — RESEARCH VS. FINAL DESIGN",
+          caption: "Quant ranking vs qualitative insight — what users said vs what they actually do.",
+          image: "/images/fox_fig2_quantVsqual.png",
+          alt: "Fox Weather homepage research: quantitative ranking compared to qualitative findings and final design.",
+          placeholder: false,
+        },
       },
       {
         id: "system",
@@ -320,7 +326,13 @@ export const CASE_STUDIES = [
           "We showed it to Fox during a routine demo. They thought they were getting a static map.",
           "We kept it for launch. App Store reviews cited it as the best feature in the app.",
         ],
-        figure: { label: "FIG. 04 — 6-HOUR RADAR", caption: "Insert: 3D radar view, playback controls, precipitation overlay", placeholder: true },
+        figure: {
+          label: "FIG. 04 — 6-HOUR RADAR",
+          caption: "6-hour interactive radar with playback controls and precipitation overlay.",
+          image: "/images/fox_fig4_6hourRadar.png",
+          alt: "Fox Weather 6-hour radar screen with interactive playback and precipitation type overlay.",
+          placeholder: false,
+        },
       },
       {
         id: "feedback",
