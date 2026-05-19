@@ -11,6 +11,8 @@ import { createPortal } from 'react-dom';
 import { CONTACT, SITE } from '../content';
 import styles from './ContactModal.module.css';
 
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
 const ContactModalContext = createContext(null);
 
 export function useContactModal() {
@@ -83,8 +85,12 @@ function ContactModalDialog({ open, onClose }) {
     setServerError(false);
     if (!name.trim() || !email.trim() || !message.trim()) return;
 
-    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
-    if (!accessKey) {
+    if (!WEB3FORMS_ACCESS_KEY) {
+      if (process.env.NODE_ENV === 'development') {
+        console.error(
+          '[contact] Web3Forms access key missing. Set WEB3FORMS_ACCESS_KEY or NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY in .env.local (or Vercel) and restart/redeploy.'
+        );
+      }
       setServerError(true);
       return;
     }
@@ -94,9 +100,12 @@ function ContactModalDialog({ open, onClose }) {
       const trimmedName = name.trim();
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
         body: JSON.stringify({
-          access_key: accessKey,
+          access_key: WEB3FORMS_ACCESS_KEY,
           subject: `Portfolio: ${trimmedName}`,
           name: trimmedName,
           email: email.trim(),
