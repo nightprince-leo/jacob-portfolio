@@ -83,18 +83,29 @@ function ContactModalDialog({ open, onClose }) {
     setServerError(false);
     if (!name.trim() || !email.trim() || !message.trim()) return;
 
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      setServerError(true);
+      return;
+    }
+
     setSubmitting(true);
     try {
-      const res = await fetch('/api/contact', {
+      const trimmedName = name.trim();
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: name.trim(),
+          access_key: accessKey,
+          subject: `Portfolio: ${trimmedName}`,
+          name: trimmedName,
           email: email.trim(),
           message: message.trim(),
+          botcheck: false,
         }),
       });
-      if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      if (!data.success) {
         setServerError(true);
         setSubmitting(false);
         return;
