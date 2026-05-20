@@ -1,80 +1,74 @@
 .hero {
-  background: var(--color-hero-dark);
-  height: 600px;
-  padding: var(--space-12) 0 var(--space-16);
+  background: var(--color-paper);
+  min-height: 600px;
+  padding: var(--space-12) 0 var(--space-20);
   position: relative;
-  overflow: hidden;
 }
 
 .inner {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 var(--space-10);
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
 }
 
 @media (max-width: 768px) {
-  .inner { padding: 0 var(--space-3); }
+  .hero {
+    min-height: auto;
+    padding: var(--space-10) 0 var(--space-16);
+  }
+
+  .inner {
+    padding: 0 var(--space-3);
+    gap: var(--space-8);
+  }
 }
 
-/* Identity row */
+/* Identity */
 .identity {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 0;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .nameBlock {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0;
 }
 
 .siteName {
   font-family: var(--font-struct);
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 500;
-  color: rgba(246,243,238,0.9);
-  letter-spacing: 0.02em;
+  color: var(--color-ink);
+  letter-spacing: 0;
+  line-height: 1.2;
 }
 
 .siteTitle {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
+  font-family: var(--font-struct);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
   color: var(--color-steel);
   text-transform: uppercase;
-}
-
-.signature {
-  width: 120px;
-  height: auto;
-  opacity: 0.6;
-}
-
-.inner :global(hr.divider) {
-  border: none;
-  height: 0;
-  margin: 0 0 var(--space-8);
-  padding: 0;
-  background: transparent;
-  visibility: hidden;
-  appearance: none;
 }
 
 /* Headline */
 .headline {
   font-size: clamp(56px, 8vw, 108px);
-  color: var(--color-paper);
-  margin-bottom: var(--space-6);
+  color: var(--color-ink);
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: var(--space-1);
 }
 
 .line {
   display: block;
+  color: rgba(42, 80, 115, 1);
 }
 
 .word {
@@ -85,13 +79,9 @@
 /* Subheadline */
 .sub {
   font-family: var(--font-body);
-  font-size: clamp(14px, 1.8vw, 17px);
+  font-size: 16px;
   color: var(--color-steel);
-  max-width: 560px;
+  max-width: 640px;
   line-height: 1.65;
   opacity: 0;
-}
-
-@media (max-width: 768px) {
-  .signature { width: 80px; }
 }
