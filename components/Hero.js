@@ -2,26 +2,6 @@ import { useEffect, useRef } from 'react';
 import { HERO, SITE } from '../content';
 import styles from './Hero.module.css';
 
-// Signature SVG — replace the path data below with your actual signature SVG path
-function Signature() {
-  const pathRef = useRef(null);
-
-  useEffect(() => {
-    if (!pathRef.current) return;
-    const length = pathRef.current.getTotalLength?.() || 400;
-    pathRef.current.style.strokeDasharray = length;
-    pathRef.current.style.strokeDashoffset = length;
-    setTimeout(() => {
-      if (pathRef.current) {
-        pathRef.current.style.transition = 'stroke-dashoffset 1.8s cubic-bezier(0.16,1,0.3,1)';
-        pathRef.current.style.strokeDashoffset = '0';
-      }
-    }, 1200);
-  }, []);
-
-  //insert svg signature here
-}
-
 export default function Hero() {
   const wordsRef = useRef([]);
 
@@ -40,16 +20,13 @@ export default function Hero() {
     <section className={styles.hero}>
       <div className={styles.inner}>
 
-        {/* Name + title + signature */}
+        {/* Name + title */}
         <div className={styles.identity}>
           <div className={styles.nameBlock}>
             <span id="hero-site-name" className={styles.siteName}>{SITE.name}</span>
             <span className={styles.siteTitle}>{SITE.title}</span>
           </div>
-          <Signature />
         </div>
-
-        <hr className="divider" />
 
         {/* Headline */}
         <h1 className={`${styles.headline} t-display`}>
