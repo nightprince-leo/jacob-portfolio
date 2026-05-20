@@ -1,7 +1,7 @@
 .hero {
   background: var(--color-paper);
-  min-height: 600px;
-  padding: var(--space-12) 0 var(--space-20);
+  height: 800px;
+  padding: 180px 0 var(--space-20);
   position: relative;
 }
 
@@ -11,11 +11,12 @@
   padding: 0 var(--space-10);
   display: flex;
   flex-direction: column;
-  gap: var(--space-16);
+  gap: 54px;
 }
 
 @media (max-width: 768px) {
   .hero {
+    height: auto;
     min-height: auto;
     padding: var(--space-10) 0 var(--space-16);
   }
@@ -43,7 +44,7 @@
   font-family: var(--font-struct);
   font-size: 16px;
   font-weight: 500;
-  color: var(--color-ink);
+  color: rgba(42, 80, 115, 1);
   letter-spacing: 0;
   line-height: 1.2;
 }
@@ -79,7 +80,7 @@
 /* Subheadline */
 .sub {
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: 18px;
   color: var(--color-steel);
   max-width: 640px;
   line-height: 1.65;
