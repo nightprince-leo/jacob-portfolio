@@ -67,13 +67,13 @@
   color: var(--color-ink);
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: 0;
 }
 
 .line {
   display: block;
   color: rgba(57, 54, 63, 1);
-  line-height: 0.8;
+  line-height: 0.95;
 }
 
 .word {
