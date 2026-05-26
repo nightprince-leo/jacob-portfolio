@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import Nav from '../../components/Nav';
@@ -390,15 +389,22 @@ export default function CaseStudyPage({ cs }) {
           <div className={styles.heroImg}>
             {cs.heroImage ? (
               <div className={styles.heroImgInner}>
-                <Image
+                <img
                   src={cs.heroImage}
                   alt={cs.heroImageAlt ?? ''}
-                  fill
-                  sizes="(max-width: 900px) 100vw, min(1200px, 92vw)"
-                  quality={95}
-                  className={styles.heroImageMedia}
-                  priority
+                  fetchPriority="high"
+                  decoding="async"
+                  className={`${styles.heroImageMedia}${cs.heroImageMobile ? ` ${styles.heroImageDesktop}` : ''}`}
                 />
+                {cs.heroImageMobile ? (
+                  <img
+                    src={cs.heroImageMobile}
+                    alt={cs.heroImageAlt ?? ''}
+                    fetchPriority="high"
+                    decoding="async"
+                    className={`${styles.heroImageMedia} ${styles.heroImageMobile}`}
+                  />
+                ) : null}
               </div>
             ) : (
               <div className="img-placeholder" style={{ height: '480px' }}>
