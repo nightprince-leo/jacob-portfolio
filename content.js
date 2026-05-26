@@ -391,7 +391,7 @@ export const HOT_TAKES = [
       "Most people focus on refining AI output—better prompts, better generations. Less attention goes to what they consume before they start.",
       "Too much input flattens thinking. Endless inspiration feeds, Pinterest loops, one more prompt tweak—it all converges toward the same ideas.",
       "The best ideas tend to show up after the input stops. Real divergence needs space.",
-      "Get bored. Actually bored. That's usually where something original shows up.",
+      "Get bored. That's usually where something original shows up.",
     ],
   },
   {
@@ -410,7 +410,7 @@ export const HOT_TAKES = [
   {
     id: 3,
     image: "/images/hot-take-3.jpg",
-    title: "Trust is a constraint, not a feature.",
+    title: "Trust is a constraint.",
     paragraphs: [
       "On the AB project, a new sales tool had one shot.",
       "Field sales reps are high-autonomy, deeply experienced, and skeptical of anything that looks like an algorithm telling them what to do.",
