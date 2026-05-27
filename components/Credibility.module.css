@@ -8,6 +8,10 @@
   padding: 0 var(--space-10);
 }
 
+.inner :global(hr.divider) {
+  height: 0;
+}
+
 @media (max-width: 768px) {
   .inner { padding: 0 var(--space-3); }
 }
