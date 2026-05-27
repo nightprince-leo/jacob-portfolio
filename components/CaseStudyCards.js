@@ -1,31 +1,19 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useRef } from 'react';
-import { CASE_STUDIES, CASE_STUDY_CARDS } from '../content';
+import { CASE_STUDIES, CASE_STUDY_CARDS, HERO } from '../content';
 import styles from './CaseStudyCards.module.css';
 
-function CaseCard({ cs, index }) {
-  const cardRef = useRef(null);
-
-  useEffect(() => {
-    const el = cardRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.style.animationDelay = `${index * 0.12}s`;
-          el.classList.add('visible');
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [index]);
+function CaseCard({ cs, index, startDelay }) {
+  const cardDelay = startDelay + index * 0.12;
 
   const inner = (
-    <article className={`${styles.card} case-card fade-up`} ref={cardRef}>
+    <article
+      className={`${styles.card} case-card`}
+      style={{
+        opacity: 0,
+        animation: `fadeUp 0.7s var(--ease-out) ${cardDelay}s forwards`
+      }}
+    >
       {/* Annotation mark */}
       <span className={styles.mark} aria-hidden="true">○</span>
 
@@ -80,6 +68,10 @@ function CaseCard({ cs, index }) {
 }
 
 export default function CaseStudyCards() {
+  const heroWordCount = HERO.headline.join(' ').split(' ').length;
+  const heroSubDelay = heroWordCount * 0.08 + 0.4;
+  const cardsStartDelay = heroSubDelay + 0.7;
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
@@ -89,7 +81,7 @@ export default function CaseStudyCards() {
         </div>
         <div className={styles.grid}>
           {CASE_STUDIES.map((cs, i) => (
-            <CaseCard key={cs.id} cs={cs} index={i} />
+            <CaseCard key={cs.id} cs={cs} index={i} startDelay={cardsStartDelay} />
           ))}
         </div>
       </div>
