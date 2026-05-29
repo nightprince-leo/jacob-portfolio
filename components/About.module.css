@@ -1,5 +1,5 @@
 .section {
-  padding: var(--space-20) 0;
+  padding: 1px 0 var(--space-20);
 }
 
 .container {
