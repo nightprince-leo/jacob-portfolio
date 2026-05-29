@@ -240,7 +240,7 @@ function SectionBlock({ section }) {
 
         {/* Main content */}
         <div className={styles.sectionContent}>
-          <span className={`${styles.sectionLabel} t-label`}>{section.label}</span>
+          <span className={styles.sectionLabel}>{section.label}</span>
 
           {/* Body paragraphs */}
           {section.body?.map((p, i) => (

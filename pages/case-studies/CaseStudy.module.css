@@ -61,6 +61,7 @@
 
 .teaser {
   font-family: var(--font-body);
+  letter-spacing: var(--letter-body);
   font-size: clamp(16px, 1.8vw, 19px);
   color: var(--color-steel);
   line-height: 1.65;
@@ -189,10 +190,15 @@
 .sectionLabel {
   display: block;
   margin-bottom: var(--space-1);
+  font-family: var(--font-struct);
+  font-size: 21px;
+  color: var(--color-steel);
+  text-transform: uppercase;
 }
 
 .body {
   font-family: var(--font-body);
+  letter-spacing: var(--letter-body);
   font-size: clamp(15px, 1.6vw, 17px);
   color: var(--color-ink);
   line-height: 1.75;
@@ -213,6 +219,7 @@
 
 .reframeFrom {
   font-family: var(--font-body);
+  letter-spacing: var(--letter-body);
   font-size: clamp(14px, 1.6vw, 16px);
   color: var(--color-steel);
   font-style: italic;
@@ -220,6 +227,7 @@
 
 .reframeTo {
   font-family: var(--font-body);
+  letter-spacing: var(--letter-body);
   font-size: clamp(14px, 1.6vw, 16px);
   color: var(--color-ink);
   font-style: italic;
@@ -240,6 +248,8 @@
   gap: var(--space-3);
   align-items: start;
   margin: var(--space-2) 0;
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-2);
 }
 
 .blockquoteRule {
@@ -302,6 +312,7 @@
 
 .decisionBody {
   font-family: var(--font-body);
+  letter-spacing: var(--letter-body);
   font-size: clamp(14px, 1.5vw, 16px);
   color: var(--color-ink);
   line-height: 1.7;

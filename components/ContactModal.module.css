@@ -57,6 +57,7 @@
 
 .intro {
   font-family: var(--font-body);
+  letter-spacing: var(--letter-body);
   font-size: 15px;
   line-height: 1.65;
   color: var(--color-steel);
@@ -86,6 +87,7 @@
 .input,
 .textarea {
   font-family: var(--font-body);
+  letter-spacing: var(--letter-body);
   font-size: 15px;
   line-height: 1.5;
   color: var(--color-ink);
@@ -144,6 +146,7 @@
 
 .formError {
   font-family: var(--font-body);
+  letter-spacing: var(--letter-body);
   font-size: 14px;
   color: var(--color-steel);
   margin-top: var(--space-2);
@@ -163,6 +166,7 @@
 
 .successBody {
   font-family: var(--font-body);
+  letter-spacing: var(--letter-body);
   font-size: 15px;
   line-height: 1.65;
   color: var(--color-steel);

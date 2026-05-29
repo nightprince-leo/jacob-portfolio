@@ -1,5 +1,5 @@
 .section {
-  padding: var(--space-10) 0 120px;
+  padding: var(--space-10) 0 60px;
   --card-image-filter: saturate(0.65) sepia(0.1);
 }
 
@@ -120,6 +120,7 @@
 
 .teaser {
   font-family: var(--font-body);
+  letter-spacing: var(--letter-body);
   font-size: 14px;
   color: var(--color-steel);
   line-height: 1.6;

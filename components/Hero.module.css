@@ -20,12 +20,29 @@
   .hero {
     height: auto;
     min-height: auto;
-    padding: var(--space-10) 0 var(--space-16);
+    padding: var(--space-3) 0 var(--space-16);
+    font-size: 16px;
+    letter-spacing: 0;
   }
 
   .inner {
     padding: 0 var(--space-3);
-    gap: var(--space-8);
+    gap: var(--space-3);
+  }
+
+  .identity {
+    padding-bottom: var(--space-3);
+  }
+
+  .headline {
+    font-size: clamp(40px, 11.5vw, 52px);
+  }
+
+  .sub {
+    font-size: 17px;
+    letter-spacing: 0.02em;
+    line-height: 1.45;
+    max-width: none;
   }
 }
 

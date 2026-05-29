@@ -74,6 +74,7 @@
 
 .desc {
   font-family: var(--font-body);
+  letter-spacing: var(--letter-body);
   font-size: 14px;
   color: var(--color-steel);
   line-height: 1.6;

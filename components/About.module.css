@@ -1,6 +1,5 @@
 .section {
   padding: var(--space-20) 0;
-  border-top: 0.5px solid var(--color-hairline);
 }
 
 .container {
@@ -41,6 +40,7 @@
 
 .para {
   font-family: var(--font-body);
+  letter-spacing: var(--letter-body);
   font-size: clamp(16px, 1.8vw, 19px);
   color: var(--color-ink);
   line-height: 1.75;

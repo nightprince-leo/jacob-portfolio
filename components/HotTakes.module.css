@@ -1,6 +1,5 @@
 .section {
   padding: var(--space-20) 0;
-  border-top: 0.5px solid var(--color-hairline);
 }
 
 .container {
@@ -147,6 +146,7 @@
 /* Match case study body (CaseStudy.module.css .body) */
 .body {
   font-family: var(--font-body);
+  letter-spacing: var(--letter-body);
   font-size: clamp(15px, 1.6vw, 17px);
   color: var(--color-ink);
   line-height: 1.75;
