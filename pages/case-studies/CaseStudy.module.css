@@ -445,8 +445,7 @@
 
 /* Before/after */
 .beforeAfterWrap {
-  padding: var(--space-8) 0;
-  border-top: 0.5px solid var(--color-hairline);
+  padding: 0 0 var(--space-8);
 }
 
 /* Next case study */
