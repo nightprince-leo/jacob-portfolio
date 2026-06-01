@@ -80,7 +80,7 @@ export const CASE_STUDIES = [
         },
         figure: {
           label: "FIG. 01 — FIELD SALES REP WORKFLOW, PRE-M360",
-          caption: "3 critical failure points identified · ride-alongs + engineering documentation · Feb 2019",
+          caption: "3 critical failure points identified · ride-alongs + engineering documentation",
           image: "/images/ab_fig1_preM360.png",
           alt: "Field sales representative workflow before M360, showing key failure points.",
           placeholder: false,
@@ -95,7 +95,7 @@ export const CASE_STUDIES = [
         ],
         blockquote: {
           text: "\"We have a whole damn marketing department — and they're making their own presentations?\"",
-          attribution: "— Anheuser-Busch Executive, 2019",
+          attribution: "— Anheuser-Busch Executive",
         },
         figure: {
           label: "FIG. 02 — FIELD RESEARCH",
