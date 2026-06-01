@@ -267,7 +267,7 @@ export const CASE_STUDIES = [
         ],
         reframe: {
           from: "\"Make a weather app.\"",
-          to: "\"What makes someone switch — and keep — it?\"",
+          to: "\"What makes someone switch and keep it?\"",
         },
       },
       {
