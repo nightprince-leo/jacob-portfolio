@@ -29,11 +29,11 @@ export const CASE_STUDY_CARDS = {
 export const CASE_STUDIES = [
   {
     id: "anheuser-busch",
-    label: "Case Study 01. 0-1.",
+    label: "Case Study 01",
     client: "Anheuser-Busch — M360",
     slug: "anheuser-busch",
     via: "via Willowtree Apps",
-    period: "11 Months",
+    period: "11 Months | 0-1",
     tags: ["Enterprise", "B2B", "iOS"],
     teaser: "$37M in SaaS eliminated. 93% AI adoption. I turned a narrow feature request into a platform strategy.",
     heroImage: "/images/ab_case_hero.png",
@@ -226,7 +226,7 @@ export const CASE_STUDIES = [
     client: "Fox Weather",
     slug: "fox-weather",
     via: "via Willowtree Apps",
-    period: "9 Months",
+    period: "9 Months | 0-1",
     tags: ["Consumer", "iOS", "Android"],
     teaser: "Saturated market. Immovable deadline. One shot. 2M+ downloads, 4.8★ at launch.",
     heroImage: "/images/fox_case_hero.png",
