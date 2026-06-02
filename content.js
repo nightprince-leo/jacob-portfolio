@@ -29,7 +29,7 @@ export const CASE_STUDY_CARDS = {
 export const CASE_STUDIES = [
   {
     id: "anheuser-busch",
-    label: "Case Study 01",
+    label: "Case Study 01. 0-1.",
     client: "Anheuser-Busch — M360",
     slug: "anheuser-busch",
     via: "via Willowtree Apps",
@@ -222,7 +222,7 @@ export const CASE_STUDIES = [
   },
   {
     id: "fox-weather",
-    label: "Case Study 02",
+    label: "Case Study 02. 0-1.",
     client: "Fox Weather",
     slug: "fox-weather",
     via: "via Willowtree Apps",
