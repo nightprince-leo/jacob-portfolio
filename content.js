@@ -222,7 +222,7 @@ export const CASE_STUDIES = [
   },
   {
     id: "fox-weather",
-    label: "Case Study 02. 0-1.",
+    label: "Case Study 02",
     client: "Fox Weather",
     slug: "fox-weather",
     via: "via Willowtree Apps",
