@@ -12,7 +12,7 @@ export const SITE = {
 };
 
 export const HERO = {
-  headline: ["The hard problems", "are the good ones."],
+  headline: ["Digital Meets Physical."],
   subheadline:
     "Designing and shipping high-stakes product systems under real constraints.",
 };
